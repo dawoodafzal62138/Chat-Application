@@ -39,6 +39,21 @@ public servergui() {
         }
     }
 
+public static void setupProjectFiles() {
+        // List of folders your application requires
+        String[] requiredFolders = {"bio", "chats", "data"};
+
+        // Loop through and create them if they don't exist
+        for (String folderName : requiredFolders) {
+            File folder = new File(folderName);
+            if (!folder.exists()) {
+                folder.mkdir();
+            }
+        }
+
+    }
+
+
 // ==============================================================================
 // save the chat in a txt file so it can easily read after application boots up
 // =============================================================================
@@ -85,6 +100,7 @@ public servergui() {
     }
     
     public static void main(String[] args) {
+        setupProjectFiles();
         new servergui();
     }
 }
